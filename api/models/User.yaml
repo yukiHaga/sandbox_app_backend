@@ -1,0 +1,7 @@
+title: User
+x-stoplight:
+  id: l06cyiw86juyw
+type: object
+properties:
+  id:
+    type: string
