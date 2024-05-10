@@ -4,4 +4,16 @@ x-stoplight:
 type: object
 properties:
   id:
+    type: integer
+  first_name:
     type: string
+    x-stoplight:
+      id: i1dalx9z9ky5v
+  last_name:
+    type: string
+    x-stoplight:
+      id: gcx52dd58cs3z
+required:
+  - id
+  - first_name
+  - last_name

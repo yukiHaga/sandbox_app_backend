@@ -1,0 +1,88 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 76ay3eio5thkt
+info:
+  title: sandbox_app_backend_api
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/teams/{team_id}/users':
+    parameters:
+      - schema:
+          type: string
+        name: team_id
+        in: path
+        required: true
+    get:
+      summary: get team users
+      tags:
+        - sandbox_app
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    x-stoplight:
+                      id: 9to814z3mhrsc
+                    items:
+                      x-stoplight:
+                        id: l3b05mynt3wt6
+                      title: User
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        first_name:
+                          type: string
+                          x-stoplight:
+                            id: i1dalx9z9ky5v
+                        last_name:
+                          type: string
+                          x-stoplight:
+                            id: gcx52dd58cs3z
+                      required:
+                        - id
+                        - first_name
+                        - last_name
+                required:
+                  - users
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                title: ResponseErrorBase
+                x-stoplight:
+                  id: yq0w4w48cw20v
+                type: object
+                properties:
+                  message:
+                    type: string
+                    x-stoplight:
+                      id: d1mph6hicxl4u
+                  status_code:
+                    type: string
+                    x-stoplight:
+                      id: 8frg6gmnip7v7
+                required:
+                  - message
+                  - status_code
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1teams~1%7Bteam_id%7D~1users/get/responses/400/content/application~1json/schema'
+      operationId: get-teams-teamId-users
+      requestBody:
+        content: {}
+components:
+  schemas: {}
+tags:
+  - name: sandbox_app

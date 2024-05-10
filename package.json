@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4"
+  },
+  "scripts": {
+    "generate-api-schema": "npx swagger-cli bundle -o ./api/schemas/sandbox_app_backend_api.yaml -t yaml ./api/reference/sandbox_app_backend_api.yaml"
+  }
+}

@@ -1,23 +1,16 @@
 title: ResponseErrorBase
 x-stoplight:
-  id: don2kwagosm6x
+  id: yq0w4w48cw20v
 type: object
 properties:
-  error:
-    type: object
+  message:
+    type: string
     x-stoplight:
-      id: b1h3870sxxeau
-    required:
-      - code
-      - message
-    properties:
-      code:
-        type: string
-        x-stoplight:
-          id: 2980uu01ndpfk
-      message:
-        type: string
-        x-stoplight:
-          id: a1iq0z2dmuwsj
+      id: d1mph6hicxl4u
+  status_code:
+    type: string
+    x-stoplight:
+      id: 8frg6gmnip7v7
 required:
-  - error
+  - message
+  - status_code

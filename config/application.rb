@@ -28,5 +28,15 @@ module SandboxAppBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Railsのアプリケーション上で表示したい時間の基準となるタイムゾーンを指定する
+    # このタイムゾーンはOSとは独立している。
+    # しかし基本的にはアプリケーションのタイムゾーンはOSのタイムゾーンと合わせておくのが安全。。
+    config.time_zone = "Tokyo"
+
+    # 余計なモデルスペックとか必要なファクトリーを生成したくないからfalseを設定
+    config.generators do |g|
+      g.test_framework false
+    end
   end
 end

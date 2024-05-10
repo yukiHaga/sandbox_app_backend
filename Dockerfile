@@ -15,7 +15,9 @@ RUN apk add --update --no-cache \
       make \
       mysql-dev \
       openssl \
-      tzdata
+      tzdata \
+      nodejs \
+      npm
 
 WORKDIR $APP_HOME
 
