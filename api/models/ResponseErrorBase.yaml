@@ -7,10 +7,9 @@ properties:
     type: string
     x-stoplight:
       id: d1mph6hicxl4u
-  status_code:
+  type:
     type: string
     x-stoplight:
-      id: 8frg6gmnip7v7
+      id: ae52p7y5rhhd2
 required:
   - message
-  - status_code

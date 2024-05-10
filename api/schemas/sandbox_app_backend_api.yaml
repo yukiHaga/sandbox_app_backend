@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.1.0
 x-stoplight:
   id: 76ay3eio5thkt
 info:
@@ -52,8 +52,8 @@ paths:
                         - last_name
                 required:
                   - users
-        '400':
-          description: Bad Request
+        '404':
+          description: Not Found
           content:
             application/json:
               schema:
@@ -66,19 +66,12 @@ paths:
                     type: string
                     x-stoplight:
                       id: d1mph6hicxl4u
-                  status_code:
+                  type:
                     type: string
                     x-stoplight:
-                      id: 8frg6gmnip7v7
+                      id: ae52p7y5rhhd2
                 required:
                   - message
-                  - status_code
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/paths/~1teams~1%7Bteam_id%7D~1users/get/responses/400/content/application~1json/schema'
       operationId: get-teams-teamId-users
       requestBody:
         content: {}

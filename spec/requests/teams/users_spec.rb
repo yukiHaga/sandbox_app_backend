@@ -13,17 +13,19 @@ RSpec.describe "/teams/:id/users", type: :request do
       }
     end
 
+    let(:team1_id) { create(:team).id }
+
+    before do
+      create(:user_team, team_id: team1_id, user_id: user1.id)
+      create(:user_team, team_id: team1_id, user_id: user2.id)
+      create(:user_team, team_id: team1_id, user_id: user3.id)
+    end
+
     context "teamのidが指定されている場合" do
-      let (:team_id) { create(:team).id }
+      context "指定したidと一致するteamが存在する場合" do
+        let(:team_id) { team1_id }
 
-      before do
-        create(:user_team, team_id:, user_id: user1.id)
-        create(:user_team, team_id:, user_id: user2.id)
-        create(:user_team, team_id:, user_id: user3.id)
-      end
-
-      context "teamのidと一致するユーザーが存在する場合" do
-        fit "returns ok" do
+        it "returns ok" do
           subject
           expect(response).to have_http_status(:ok)
           expect(response.body).to be_json_including({
@@ -33,14 +35,14 @@ RSpec.describe "/teams/:id/users", type: :request do
         end
       end
 
-      context "teamのidと一致するユーザーが存在しない場合" do
-        it "returns not found" do
-        end
-      end
-    end
+      context "指定したidと一致するteamが存在しない場合" do
+        let(:team_id) { 0 }
 
-    context "teamのidが指定されていない場合" do
-      it "returns bad request" do
+        it "returns not found" do
+          subject
+          expect(response).to have_http_status(:not_found)
+          assert_response_schema_confirm(404)
+        end
       end
     end
   end

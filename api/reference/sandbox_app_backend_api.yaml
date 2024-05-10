@@ -1,13 +1,13 @@
-openapi: 3.0.0
+openapi: 3.1.0
 x-stoplight:
   id: 76ay3eio5thkt
 info:
   title: sandbox_app_backend_api
-  version: "1.0"
+  version: '1.0'
 servers:
-  - url: "http://localhost:3000"
+  - url: 'http://localhost:3000'
 paths:
-  "/teams/{team_id}/users":
+  '/teams/{team_id}/users':
     parameters:
       - schema:
           type: string
@@ -19,7 +19,7 @@ paths:
       tags:
         - sandbox_app
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -36,13 +36,7 @@ paths:
                         id: l3b05mynt3wt6
                 required:
                   - users
-        "400":
-          description: Bad Request
-          content:
-            application/json:
-              schema:
-                $ref: ../models/ResponseErrorBase.yaml
-        "404":
+        '404':
           description: Not Found
           content:
             application/json:
