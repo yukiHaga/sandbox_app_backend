@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.0
 x-stoplight:
   id: 76ay3eio5thkt
 info:
@@ -52,6 +52,7 @@ paths:
                         - last_name
                 required:
                   - users
+                additionalProperties: false
         '404':
           description: Not Found
           content:
@@ -75,6 +76,54 @@ paths:
       operationId: get-teams-teamId-users
       requestBody:
         content: {}
+  /teams:
+    get:
+      summary: get teams
+      tags:
+        - sandbox_app
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams:
+                    type: array
+                    x-stoplight:
+                      id: z455bdcdb6fn0
+                    items:
+                      x-stoplight:
+                        id: ehiirrtxaaxln
+                      title: Team
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                          x-stoplight:
+                            id: dz283mkau1bku
+                      required:
+                        - id
+                        - name
+                required:
+                  - teams
+                additionalProperties: false
+      operationId: get-teams
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: search_keyword
+        - schema:
+            type: array
+          in: query
+          name: user_ids
+          style: form
+          explode: true
+      description: ''
 components:
   schemas: {}
 tags:

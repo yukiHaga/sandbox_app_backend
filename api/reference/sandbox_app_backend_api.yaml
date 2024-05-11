@@ -1,13 +1,13 @@
-openapi: 3.1.0
+openapi: 3.0.0
 x-stoplight:
   id: 76ay3eio5thkt
 info:
   title: sandbox_app_backend_api
-  version: '1.0'
+  version: "1.0"
 servers:
-  - url: 'http://localhost:3000'
+  - url: "http://localhost:3000"
 paths:
-  '/teams/{team_id}/users':
+  "/teams/{team_id}/users":
     parameters:
       - schema:
           type: string
@@ -19,7 +19,7 @@ paths:
       tags:
         - sandbox_app
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -36,7 +36,8 @@ paths:
                         id: l3b05mynt3wt6
                 required:
                   - users
-        '404':
+                additionalProperties: false
+        "404":
           description: Not Found
           content:
             application/json:
@@ -45,6 +46,43 @@ paths:
       operationId: get-teams-teamId-users
       requestBody:
         content: {}
+  /teams:
+    get:
+      summary: get teams
+      tags:
+        - sandbox_app
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teams:
+                    type: array
+                    x-stoplight:
+                      id: z455bdcdb6fn0
+                    items:
+                      $ref: ../models/Team.yaml
+                      x-stoplight:
+                        id: ehiirrtxaaxln
+                required:
+                  - teams
+                additionalProperties: false
+      operationId: get-teams
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: search_keyword
+        - schema:
+            type: array
+          in: query
+          name: user_ids
+          style: form
+          explode: true
+      description: ""
 components:
   schemas: {}
 tags:

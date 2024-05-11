@@ -28,6 +28,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
 
+  config.filter_run_when_matching :focus
+
   #　この2行を入れるだけでRailsでcommitiee-railsが使えるようになる
   config.add_setting :committee_options
   config.committee_options = {

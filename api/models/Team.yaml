@@ -1,0 +1,14 @@
+title: Team
+x-stoplight:
+  id: 2mbsk2rgxkavj
+type: object
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+    x-stoplight:
+      id: dz283mkau1bku
+required:
+  - id
+  - name
