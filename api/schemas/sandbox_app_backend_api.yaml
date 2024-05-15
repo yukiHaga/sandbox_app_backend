@@ -124,6 +124,54 @@ paths:
           style: form
           explode: true
       description: ''
+  '/teams/{team_id}/users/bulk':
+    parameters:
+      - schema:
+          type: string
+        name: team_id
+        in: path
+        required: true
+    patch:
+      summary: bulk update users
+      tags:
+        - sandbox_app
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      operationId: patch-teams-team_id-users-bulk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                users:
+                  type: array
+                  x-stoplight:
+                    id: fbnm15b7vk4b2
+                  items:
+                    x-stoplight:
+                      id: jhslr847gegs5
+                    type: object
+                    minProperties: 0
+                    maxProperties: 0
+                    properties:
+                      id:
+                        type: integer
+                        x-stoplight:
+                          id: zpfpqlh86sdi6
+                      first_name:
+                        type: string
+                        x-stoplight:
+                          id: 9e249530yrdfk
+                    required:
+                      - id
+                      - first_name
+              required:
+                - users
+        description: ''
 components:
   schemas: {}
 tags:

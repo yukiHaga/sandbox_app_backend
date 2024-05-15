@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :teams do
-    resources :users, only: %i(index), module: :teams
+    scope module: :teams do
+      resources :users, only: %i(index)
+      namespace :users do
+        patch "/bulk", to: "bulks#update"
+      end
+    end
   end
 end
