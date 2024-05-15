@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
     teams = teams.joins(:users).merge(User.where(id: params[:user_ids])) if params[:user_ids]
     teams = teams.distinct
 
-    # このタイミングでクエリが実行される
+    # このタイミングでteamsをrenderする必要があるので、teamsが必要。なので、クエリが実行される
     render json: teams, root: "teams", adapter: :json, status: :ok
   end
 end
