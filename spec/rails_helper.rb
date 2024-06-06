@@ -16,6 +16,7 @@ end
 RSpec.configure do |config|
   config.include RSpec::JsonMatcher
   config.include Committee::Rails::Test::Methods
+  config.include ActiveSupport::Testing::TimeHelpers # 追加
 
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
