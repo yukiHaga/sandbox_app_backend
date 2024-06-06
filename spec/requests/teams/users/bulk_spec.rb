@@ -35,7 +35,7 @@ RSpec.describe "/teams/:id/users/bulk", type: :request do
       create(:user_team, team_id: team3_id, user_id: user3.id)
     end
 
-    fit "returns ok" do
+    it "returns ok" do
       subject
       expect(response).to have_http_status(:ok)
       assert_response_schema_confirm(200)
