@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: teams
+#
+#  id         :bigint           not null, primary key
+#  name       :string(255)      not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 RSpec.describe "/teams", type: :request do
   # GET /teamsについてのリクエストした際のテストを書くよ〜
   describe "GET /teams" do

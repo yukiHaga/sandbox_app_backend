@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  include ActionController::Cookies
+
   # record_not_foundにはerrorインスタンスが渡される
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
